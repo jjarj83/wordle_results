@@ -1,25 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+// import {myAuth} from "./firebase/auth";
+// import {useAuthState} from "react-firebase-hooks/auth";
+// import Logout from "./components/Auth/Logout";
+import Homepage from "./components/Homepage";
+// import UserUnauthenticated from "./components/Auth/Login";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // const [user, loading, error] = useAuthState(myAuth);
+
+    // if (loading) {
+    //     return (
+    //         <div>Please Wait</div>
+    //     );
+    // } else if (user) {
+        return (
+            <div>
+                {/*aaaa*/}
+    {/*//             <Logout/>*/}
+                <Homepage/>
+            </div>);
+    // } else if (error) {
+    //     return (
+    //         <div>
+    //             <Logout/>
+    //             <div>An error occured during login, please try again</div>
+    //             <div>{error}</div>
+    //         </div>
+    //     )
+    // } else {
+    //     return <UserUnauthenticated/>
+    // }
 }
 
 export default App;
