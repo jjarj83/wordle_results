@@ -14,8 +14,6 @@ class FileList extends Component {
     };
 
     componentDidMount() {
-        //    Read the url
-        //this.props.match.params['parcelID'];
         let wordle = 243 + (((new Date(new Date().toLocaleDateString()).getTime()) - (new Date("2/17/2022")).getTime()) / (1000 * 3600 * 24))
 
         this.findResults(wordle)
@@ -72,9 +70,7 @@ class FileList extends Component {
     render() {
         return (
             <div className={'FileList'}>
-                <div>
-                    {this.renderFolderContents()}
-                </div>
+                {this.renderFolderContents()}
             </div>
         );
     }

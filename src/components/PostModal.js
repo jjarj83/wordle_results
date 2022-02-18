@@ -6,7 +6,7 @@ import {uploadResults} from "../firebase/firestore";
 //React docs simple forms: https://reactjs.org/docs/forms.html
 //Blank space: https://stackoverflow.com/questions/40264084/best-practice-when-adding-whitespace-in-jsx
 
-class Post extends Component {
+class PostModal extends Component {
     state = {
         status: 0,
         isOpen: true,
@@ -80,4 +80,4 @@ class Post extends Component {
     }
 }
 
-export default Post;
+export default PostModal;

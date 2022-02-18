@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Modal from 'react-modal';
-import Post from "./Post";
+import PostModal from "./PostModal";
 import FileList from "./FileList";
 
 class Homepage extends Component {
@@ -23,6 +23,10 @@ class Homepage extends Component {
         this.setState({isOpen: false});
     }
 
+    afterOpen() {
+        console.log("Modal just opened");
+    }
+
     render() {
         return (
             <div>
@@ -31,10 +35,10 @@ class Homepage extends Component {
                     isOpen={this.state.isOpen}
                     onAfterOpen={this.afterOpen}
                     onRequestClose={this.closeModal}
-                    contentLabel={"Make Post"}
+                    contentLabel={"Make PostModal"}
                 >
                     <button onClick={this.closeModal}>Close</button>
-                    <Post/>
+                    <PostModal/>
                 </Modal>
                 <FileList/>
             </div>
