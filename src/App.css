@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.Page {
+  background-color: #71A2B6;
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
