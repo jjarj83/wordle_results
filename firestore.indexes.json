@@ -1,4 +1,19 @@
 {
-  "indexes": [],
+  "indexes": [
+    {
+      "collectionGroup": "daily_results",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "wordle",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "guess",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
   "fieldOverrides": []
 }
