@@ -7,7 +7,11 @@ const path = 'daily_results'
 //Runs query for all results on a supplied wordle.
 //Order bys amount of guesses
 async function queryByResults(wordle) {
-    return (await getDocs(query(collection(db, path), where('wordle', '==', wordle), orderBy('guess'))));
+    return (
+        await getDocs(
+            query(collection(db, path), where('wordle', '==', wordle), orderBy('guess', "asc"))
+        )
+    );
 }
 
 //Upload object into firestore and generates the time it was uploaded

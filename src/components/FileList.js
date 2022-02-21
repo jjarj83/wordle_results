@@ -35,6 +35,9 @@ class FileList extends Component {
                 //Once loop finishes, save list to state
                 this.setState({results: wordleResults});
             }
+            //Catch firestore errors
+        }).catch((error) => {
+            console.log(error);
         });
     }
 
