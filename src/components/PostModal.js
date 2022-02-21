@@ -24,13 +24,13 @@ class PostModal extends Component {
         } else {
             let result = e.target['result'].value
             let wordle = result.match(/^\d+|\d+\b|\d+(?=\w)/g)
-            if (wordle.length === 3) {
+
+            if (wordle !== null && wordle !== undefined && wordle.length === 3) {
                 uploadResults(e.target['name'].value, e.target['result'].value, e.target['message'].value, parseInt(wordle[0]), parseInt(wordle[1])).then(result => {
-                    alert('Results successfully uploaded!');
                     this.props.closeModalFunction(1);
-                })
+                });
             } else {
-                alert("The wordle results string is broken. make sure you pasted it right")
+                alert("The wordle results string is broken. make sure you pasted it right");
             }
         }
     }
