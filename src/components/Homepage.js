@@ -13,16 +13,21 @@ class Homepage extends Component {
         alreadySubmitted: false,
     };
 
+    //To over simplify, think of the modal as running in a seperate thread,
+    // so this constructor binds the same instance of the functions and variables together into the modal,
+    // letting us control the same data.
     constructor(e) {
         super(e);
         this.openModal = this.openModal.bind(this)
         this.closeModal = this.closeModal.bind(this)
     }
 
+    //Opens Modal
     openModal() {
         this.setState({isOpen: true});
     }
 
+    //Closes modal, with a case for if the submission was just sent, show the alert and grey out the button
     closeModal(response) {
         if (response === 1) {
             this.setState({isOpen: false, positiveAlert: true, alreadySubmitted: true});
@@ -30,27 +35,28 @@ class Homepage extends Component {
         this.setState({isOpen: false});
     }
 
+    //Is called after the modal finishes opening, currently just here so i remember it exists, doesn't do anything
     afterOpen() {
         console.log("Modal just opened");
     }
 
     render() {
         return (
+            //Theme provider gives us access to the custom button colors
             <ThemeProvider theme={this.props.theme}>
                 <Button variant='contained' color={"buttons"} disabled={this.state.alreadySubmitted}
-                        onClick={this.openModal}>Submit Wordle
-                    Results</Button>
-                <Modal
-                    isOpen={this.state.isOpen}
-                    onAfterOpen={this.afterOpen}
-                    onRequestClose={this.closeModal}
-                    contentLabel={"Make PostModal"}
-                    ariaHideApp={false}
-                >
+                        onClick={this.openModal}>
+                    Submit Wordle Results
+                </Button>
+                {/*Not rendered in line, will overlay page*/}
+                <Modal isOpen={this.state.isOpen} onAfterOpen={this.afterOpen} onRequestClose={this.closeModal}
+                       contentLabel={"Make Post Modal"} ariaHideApp={false}>
                     <Button variant='contained' color={"buttons"} onClick={this.closeModal}>Close</Button>
                     <PostModal closeModalFunction={this.closeModal}/>
                 </Modal>
                 <br/>
+                {/*A transition element to smoothly place alert on screen*/}
+                {/*SX tag is shortcut to add css. Currently unused*/}
                 <Collapse in={this.state.positiveAlert}>
                     <Alert
                         action={
